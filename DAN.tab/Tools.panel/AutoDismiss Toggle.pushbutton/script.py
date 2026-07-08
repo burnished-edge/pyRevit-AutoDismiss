@@ -1,19 +1,19 @@
 from pyrevit import script, forms
 
-# Access the exact same config file that startup.py is looking at
+# Access the config file
 my_config = script.get_config("AutoDismiss")
 
-# Get the current state (defaults to True)
-current_state = my_config.get_option('is_active', default=True)
+# Get the current state (pass True as a positional argument)
+current_state = my_config.get_option('is_active', True)
 
-# Flip the state (If True, make False. If False, make True)
+# Flip the state
 new_state = not current_state
 
-# Save the new state back to the config file
+# Save the new state
 my_config.is_active = new_state
 script.save_config()
 
-# Give the user visual feedback so they know what happened
+# Visual feedback
 if new_state:
     forms.alert("Auto-Dismiss is now ON", title="Tool Status", warn_icon=False)
 else:
