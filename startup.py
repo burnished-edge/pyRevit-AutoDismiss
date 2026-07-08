@@ -28,7 +28,7 @@ def dismiss_type_warning(sender, args):
         # 4. If we are in a schedule, proceed with checking the warning message
         if hasattr(args, 'Message'):
             target_texts = (
-                "This change will be applied to all elements of type",
+                "MESSAGE TO BE DISMISSED - MUST BE PHRASED VERBATIM",
             )
             
             if args.Message.startswith(target_texts):
